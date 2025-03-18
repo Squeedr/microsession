@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply antialiased text-gray-900;
+  }
+
+  /* Improve default focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}
+
+/* Custom scrollbar styles */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 hover:bg-gray-400 rounded;
+  }
+}
+
+/* Modal animations */
+.modal-enter {
+  @apply opacity-0 scale-95;
+}
+
+.modal-enter-active {
+  @apply opacity-100 scale-100;
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.modal-exit {
+  @apply opacity-100 scale-100;
+}
+
+.modal-exit-active {
+  @apply opacity-0 scale-95;
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+/* Toast animations */
+.toast-enter {
+  @apply translate-y-2 opacity-0;
+}
+
+.toast-enter-active {
+  @apply translate-y-0 opacity-100;
+  transition: transform 200ms ease-out, opacity 200ms ease-out;
+}
+
+.toast-exit {
+  @apply translate-y-0 opacity-100;
+}
+
+.toast-exit-active {
+  @apply translate-y-2 opacity-0;
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+}
